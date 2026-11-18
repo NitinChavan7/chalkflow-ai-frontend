@@ -23,10 +23,7 @@ export function Sidebar({ menu, onClose, status, check }) {
   return (
     <aside className={"sidebar " + (menu ? "open" : "")}>
       <div className="brand">
-        <span className="brand-mark">
-          <span>c</span>
-          <i />
-        </span>
+        <img className="brand-logo" src="/favicon.svg" alt="" />
         <div>
           <strong>
             chalkflow<span>ai</span>
@@ -65,11 +62,9 @@ export function Sidebar({ menu, onClose, status, check }) {
             <Sparkles size={17} />
           </div>
           <strong>
-            A little learning,
-            <br />
-            every day.
+            Learn at your own pace.
           </strong>
-          <p>Big ideas start with a single question.</p>
+          <p>Create a lesson and explore the ideas behind it.</p>
           <button
             onClick={() => {
               navigate("/create");
@@ -85,7 +80,7 @@ export function Sidebar({ menu, onClose, status, check }) {
           title="Check connection again"
         >
           <span className={"status-dot " + status} />
-          <span>Backend {status}</span>
+          <span>Service {status}</span>
           <span className="connection-refresh">&#8635;</span>
         </button>
       </div>

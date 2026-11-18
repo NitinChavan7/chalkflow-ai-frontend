@@ -27,20 +27,16 @@ import ReactMarkdown from "react-markdown";
 
 export function Tutor({
   lesson,
+  session,
+  setSession,
   question,
   setQuestion,
   setHighlight,
   setBoard,
 }) {
-  const [messages, setMessages] = useState([]),
-    [conversation, setConversation] = useState(null),
-    [loading, setLoading] = useState(false),
+  const { messages, conversationId } = session;
+  const [loading, setLoading] = useState(false),
     [error, setError] = useState("");
-  useEffect(() => {
-    setMessages([]);
-    setConversation(null);
-    setError("");
-  }, [lesson?._id]);
   async function send(e) {
     e.preventDefault();
     const q = question.trim();
@@ -48,14 +44,21 @@ export function Tutor({
     setLoading(true);
     setError("");
     try {
-      const result = await api.ask(lesson._id, q, conversation);
-      setMessages((m) => [
-        ...m,
-        { role: "user", content: q },
-        { role: "assistant", content: result.answer },
-      ]);
+      const result = await api.ask(lesson._id, q, conversationId);
+      setSession((current) =>
+        current.lessonId !== lesson._id
+          ? current
+          : {
+              ...current,
+              messages: [
+                ...current.messages,
+                { role: "user", content: q },
+                { role: "assistant", content: result.answer },
+              ],
+              conversationId: result.conversationId,
+            },
+      );
       setQuestion("");
-      setConversation(result.conversationId);
       setHighlight(result.highlightNodeId);
       const update = result.boardUpdate;
       if (update && update.action !== "none") {
@@ -175,7 +178,10 @@ export function Tutor({
               <Send size={18} />
             </button>
           </div>
-          <p>YOUR TUTOR USES THE CONTEXT OF YOUR SELECTED LESSON.</p>
+          <p>
+            Live AI response based on your lesson. AI can make mistakes; verify
+            important details.
+          </p>
         </form>
       </div>
     </div>

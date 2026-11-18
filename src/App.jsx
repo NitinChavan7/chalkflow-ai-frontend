@@ -17,6 +17,11 @@ export default function App() {
     [recent, setRecent] = useState([]),
     [menu, setMenu] = useState(false),
     [question, setQuestion] = useState(""),
+    [tutorSession, setTutorSession] = useState({
+      lessonId: null,
+      messages: [],
+      conversationId: null,
+    }),
     [highlight, setHighlight] = useState(null),
     [board, setBoard] = useState(null),
     [libraryLoading, setLibraryLoading] = useState(true),
@@ -31,6 +36,12 @@ export default function App() {
   }, []);
   const select = useCallback((l) => {
     setLesson(l);
+    setTutorSession((session) =>
+      session.lessonId === l._id
+        ? session
+        : { lessonId: l._id, messages: [], conversationId: null },
+    );
+    setQuestion("");
     setBoard(l.whiteboard);
     setHighlight(null);
     localStorage.setItem("chalkflow-selected", l._id);
@@ -136,6 +147,8 @@ export default function App() {
             element={
               <Tutor
                 lesson={lesson}
+                session={tutorSession}
+                setSession={setTutorSession}
                 question={question}
                 setQuestion={setQuestion}
                 setHighlight={setHighlight}

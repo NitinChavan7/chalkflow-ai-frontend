@@ -63,7 +63,9 @@ export function Create({ save }) {
           </span>
           <div>
             <h2>Create a lesson</h2>
-            <p>Your lesson includes explanations, examples, and a whiteboard.</p>
+            <p>
+              Your lesson includes explanations, examples, and a whiteboard.
+            </p>
           </div>
         </div>
         <form onSubmit={submit}>

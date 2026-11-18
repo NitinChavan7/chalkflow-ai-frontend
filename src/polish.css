@@ -1,0 +1,85 @@
+:root { --ink: #1d2d3b; --serif: 'Source Serif 4', Georgia, serif; }
+body { color: var(--ink); background: #f7f7f3; }
+.brand { gap: 11px; }
+.brand-logo { display: block; width: 37px; height: 37px; flex: none; }
+.brand strong { font-size: 18px; letter-spacing: -.055em; }
+.brand small { font-size: 8px; letter-spacing: .14em; margin-top: 4px; }
+.sidebar, .topbar { background: #fffefa; }
+.nav-item { border-radius: 5px; }
+.nav-item.active { background: #edf1f8; color: #294d9c; }
+.side-note { background: #f5f5ef; border: 1px solid #edeee7; }
+.side-note-icon { color: #bc805f; }
+.connection { border-top: 1px solid #eeefeb; margin-top: 17px; padding-top: 16px; }
+.button { min-height: 42px; border-radius: 5px; transition: background .18s, border-color .18s; }
+.button.primary { background: #3155aa; }
+.button.primary:hover { background: #25458e; }
+.text-link { color: #3155aa; }
+.dashboard-heading h1 { font-family: var(--serif); font-weight: 500; font-size: 39px; letter-spacing: -.035em; }
+.dashboard-kicker, .start-label { font-size: 10px; letter-spacing: .12em; color: #71808b; }
+.start-panel { border: 1px solid #e3e7e2; background: #fffefa; box-shadow: 0 3px 12px #30434b08; padding: 30px 32px; }
+.start-icon { background: #e9eef9; color: #3556a9; }
+.start-panel h2 { font-family: var(--serif); font-weight: 500; font-size: 32px; line-height: 1.14; letter-spacing: -.025em; }
+.start-panel > p { color: #677784; font-size: 13px; }
+.dashboard-form { margin-top: 27px; }
+.dashboard-field label { color: #374b58; }
+.dashboard-field input, .dashboard-field select { height: 46px; border-color: #d8dfdd; background: #fff; }
+.dashboard-submit { height: 46px; }
+.example-topics button { background: #f2f4f1; color: #60727c; }
+.example-topics button:hover { background: #e8edf6; color: #3155aa; }
+.how-panel { background: #e9eee8; color: #273e39; border: 1px solid #dfe8df; }
+.how-top { color: #698779; }
+.how-panel h2 { font-family: var(--serif); font-size: 25px; font-weight: 500; letter-spacing: -.025em; }
+.how-panel > p { color: #71867a; }
+.how-steps > div { border-color: #d7e1d7; }
+.how-steps > div > span { color: #718f7e; }
+.how-steps small { color: #687f73; }
+.how-bottom { color: #718c7b; }
+.dashboard-section-heading h2 { font-family: var(--serif); font-size: 24px; font-weight: 500; }
+.dashboard-section-heading > p { color: #72808a; }
+.dashboard-empty, .dashboard-tool, .lesson-card { background: #fffefa; border-color: #e3e7e2; }
+.dashboard-empty p, .tool-copy small { color: #73818a; }
+.dashboard-tool:hover, .lesson-card:hover { border-color: #aebedc; box-shadow: 0 6px 16px #2036450a; }
+.tool-copy > span { color: #3155aa; }
+.tool-icon.blue { background: #ecf0f8; color: #5b75b4; }
+.tool-icon.orange { background: #f8eee6; color: #b67c5d; }
+.tool-icon.green { background: #e9f2eb; color: #709a7e; }
+.page-heading h1 { font-family: var(--serif); font-weight: 500; letter-spacing: -.035em; }
+.page-heading h1 em { font-family: inherit; color: #3155aa; font-style: normal; }
+.page-heading p { color: #687986; }
+.form-panel, .reading, .lesson-nav, .tutor-prompt, .chat, .quiz-box, .quiz-intro, .empty-large { background: #fffefa; border-color: #e3e7e2; }
+.form-panel input, .form-panel select { border-color: #dce2df; }
+.form-panel label { color: #344955; }
+.form-panel small, .panel-heading p { color: #71808a; }
+.reading h2, .quiz-box h2, .quiz-intro h2, .chat-welcome h2 { font-family: var(--serif); font-weight: 500; }
+.reading .markdown { font-size: 14px; line-height: 1.9; }
+.example { background: #f2f5f1; border-color: #91ad9c; }
+.chat-header, .chat-form { border-color: #ebeee9; }
+.message > div { background: #f2f4f1; }
+.message.user > div { background: #edf1fa; }
+.board-wrap { background: #f9faf7; border-color: #dfe5df; }
+.flow-node { border-color: #dce4e0; border-top-color: #7893c4; border-radius: 5px; }
+.flow-node p { color: #6c7d84; }
+@media (max-width: 1100px) {
+  .how-panel { display: block; }
+  .dashboard-main-grid { grid-template-columns: minmax(0, 1fr) 280px; }
+  .dashboard-form { flex-wrap: wrap; }
+  .topic-field { flex-basis: 100%; }
+  .level-field { flex: 1; }
+}
+@media (max-width: 760px) {
+  .dashboard-main-grid { grid-template-columns: 1fr; }
+  .how-panel { display: block; padding: 21px; }
+  .how-panel h2 { font-size: 22px; margin-top: 15px; }
+  .how-panel h2 br { display: none; }
+  .how-panel > p, .how-bottom { display: none; }
+  .how-steps { margin-top: 14px; }
+  .how-steps > div { padding: 8px 0; }
+  .dashboard-heading h1 { font-size: 32px; }
+  .start-panel { padding: 22px 20px; }
+  .start-panel h2 { font-size: 28px; }
+  .dashboard-form { display: grid; }
+  .topic-field { grid-column: 1 / -1; }
+  .level-field { width: auto; }
+  .dashboard-submit { width: 100%; }
+  .page-heading h1 { font-size: 29px; }
+}
